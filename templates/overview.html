@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview</title>
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    <div class="buttons">
+      <button id="sendButton">Send</button>
+      <a href="/load">
+        <button>Load</button>
+      </a>
+    </div>
+    <div class="data">{%DATA%}</div>
+
+    <script>
+      document.getElementById("sendButton").addEventListener("click", () => {
+        const currentTime = new Date(Date.now()).toString();
+        fetch("/send-to-redis", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: "Requested at :" + currentTime }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

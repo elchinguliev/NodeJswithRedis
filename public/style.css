@@ -1,0 +1,27 @@
+body{
+    
+    padding: 50px;
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+
+button{
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 0 15px;
+    display: block;
+}
+
+
+a{
+    text-decoration: none;
+}
+.buttons {
+    width: 10%;
+}
